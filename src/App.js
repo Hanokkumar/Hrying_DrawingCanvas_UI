@@ -134,7 +134,7 @@ const App = () => {
         <Typography variant="h3" className="title">
           Welcome to DrawCanvas
         </Typography>
-        <Typography variant="h6" className="subtitle">by Hyring.com</Typography>
+        {/* <Typography variant="h6" className="subtitle">by Hyring.com</Typography> */}
      
         <Notification message={notification} />
       </Box>
