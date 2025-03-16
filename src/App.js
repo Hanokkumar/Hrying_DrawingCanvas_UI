@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Box, Typography, Button, Grid, Slider, Paper, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { Container, Box, Typography, Button, Slider, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import { SketchPicker } from 'react-color';
 import JoiningScreen from './components/JoiningScreen';
 import Notification from './components/Notification';
@@ -9,7 +9,7 @@ import UserList from './components/UserList';
 import './components/style.css';
 
 const App = () => {
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
   const [joined, setJoined] = useState(false);
   const [users, setUsers] = useState([]);
   const [notification, setNotification] = useState('');
@@ -39,10 +39,10 @@ const App = () => {
   }, [joined]);
 
   const handleJoin = (userName) => {
-    setName(userName);
+    // setName(userName);
     setJoined(true);
 
-    // Initialize WebSocket connection
+
     wsRef.current = new WebSocket('ws://103.195.246.19/api_test');
 
     wsRef.current.onopen = () => {
@@ -67,7 +67,7 @@ const App = () => {
       } else if (data.type === 'clear') {
         setDrawingData([]);
       } else if (data.type === 'initialData') {
-        // Set the existing drawing data when a new user joins
+       
         setDrawingData(data.data);
       }
     };
@@ -109,7 +109,7 @@ const App = () => {
       wsRef.current.close();
     }
     setJoined(false);
-    setName('');
+    // setName('');
     setUsers([]);
     setDrawingData([]);
     setShowLeaveDialog(false);

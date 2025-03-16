@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const Canvas = ({ onDraw, width, height, drawingData, brushColor, brushSize, canvasColor }) => {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [prevPoint, setPrevPoint] = useState(null); // Track the previous point
+  const [prevPoint, setPrevPoint] = useState(null); 
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -12,7 +12,7 @@ const Canvas = ({ onDraw, width, height, drawingData, brushColor, brushSize, can
     ctx.fillStyle = canvasColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Render all drawing data
+
     drawingData.forEach((draw) => {
       ctx.beginPath();
       ctx.strokeStyle = draw.color || '#000000';
@@ -27,14 +27,14 @@ const Canvas = ({ onDraw, width, height, drawingData, brushColor, brushSize, can
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     if (e.touches) {
-      // For touch events
+     
       const touch = e.touches[0];
       return {
         x: touch.clientX - rect.left,
         y: touch.clientY - rect.top,
       };
     } else {
-      // For mouse events
+    
       return {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
@@ -45,47 +45,47 @@ const Canvas = ({ onDraw, width, height, drawingData, brushColor, brushSize, can
   const handleMouseDown = (e) => {
     setIsDrawing(true);
     const { x, y } = getCoordinates(e);
-    setPrevPoint({ x, y }); // Set the initial point
-    onDraw(x, y, x, y); // Draw a single point initially
+    setPrevPoint({ x, y }); 
+    onDraw(x, y, x, y); 
   };
 
   const handleMouseMove = (e) => {
     if (isDrawing) {
       const { x, y } = getCoordinates(e);
       if (prevPoint) {
-        onDraw(prevPoint.x, prevPoint.y, x, y); // Draw a line from the previous point to the current point
+        onDraw(prevPoint.x, prevPoint.y, x, y); 
       }
-      setPrevPoint({ x, y }); // Update the previous point
+      setPrevPoint({ x, y }); 
     }
   };
 
   const handleMouseUp = () => {
     setIsDrawing(false);
-    setPrevPoint(null); // Reset the previous point
+    setPrevPoint(null); 
   };
 
   const handleTouchStart = (e) => {
-    e.preventDefault(); // Prevent default touch behavior (scrolling)
+    e.preventDefault(); 
     setIsDrawing(true);
     const { x, y } = getCoordinates(e);
-    setPrevPoint({ x, y }); // Set the initial point
-    onDraw(x, y, x, y); // Draw a single point initially
+    setPrevPoint({ x, y }); 
+    onDraw(x, y, x, y); 
   };
 
   const handleTouchMove = (e) => {
-    e.preventDefault(); // Prevent default touch behavior (scrolling)
+    e.preventDefault();
     if (isDrawing) {
       const { x, y } = getCoordinates(e);
       if (prevPoint) {
-        onDraw(prevPoint.x, prevPoint.y, x, y); // Draw a line from the previous point to the current point
+        onDraw(prevPoint.x, prevPoint.y, x, y); 
       }
-      setPrevPoint({ x, y }); // Update the previous point
+      setPrevPoint({ x, y }); 
     }
   };
 
   const handleTouchEnd = () => {
     setIsDrawing(false);
-    setPrevPoint(null); // Reset the previous point
+    setPrevPoint(null); 
   };
 
   return (
@@ -93,14 +93,14 @@ const Canvas = ({ onDraw, width, height, drawingData, brushColor, brushSize, can
       ref={canvasRef}
       width={width}
       height={height}
-      style={{ border: '1px solid black', marginTop: '20px', touchAction: 'none' }} // Disable touch scrolling
+      style={{ border: '1px solid black', marginTop: '20px', touchAction: 'none' }} 
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      onContextMenu={(e) => e.preventDefault()} // Disable right-click menu
+      onContextMenu={(e) => e.preventDefault()} 
     />
   );
 };

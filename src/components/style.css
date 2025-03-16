@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-/* Header */
+
 .header {
   margin-bottom: 20px;
 }
@@ -31,17 +31,17 @@
   font-size: 1.2rem;
 }
 
-/* Main Layout */
+
 .main-container {
   display: flex;
   width: 100%;
   max-width: 1200px;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Ensures responsive stacking */
+  flex-wrap: wrap;
 }
 
-/* Sidebar */
+
 .sidebar {
   width: 250px;
   background: #fff;
@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-/* Toolbar Buttons */
+
 .toolbar-button {
   background-color: #4caf50 !important;
   color: white !important;
@@ -61,7 +61,7 @@
   width: 100%;
 }
 
-/* Canvas Container */
+
 .canvas-container {
   flex: 1;
   display: flex;
@@ -70,7 +70,7 @@
  min-width: min-content; 
 }
 
-/* Canvas */
+
 canvas {
   max-width: max-content;
   height: auto;
@@ -78,7 +78,7 @@ canvas {
   background-color: #f0f0f0;
 }
 
-/* Action Buttons */
+
 .action-buttons {
   display: flex;
   justify-content: center;
@@ -96,7 +96,7 @@ canvas {
   color: white !important;
 }
 
-/* 🎯 Mobile Responsive */
+
 @media (max-width: 768px) {
   .main-container {
     flex-direction: column;
