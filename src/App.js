@@ -43,7 +43,7 @@ const App = () => {
     setJoined(true);
 
     // Initialize WebSocket connection
-    wsRef.current = new WebSocket('ws://localhost:8080');
+    wsRef.current = new WebSocket('ws://103.195.246.19/api_test');
 
     wsRef.current.onopen = () => {
       console.log('WebSocket connection established');
