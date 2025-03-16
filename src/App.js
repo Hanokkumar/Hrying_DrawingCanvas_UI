@@ -43,7 +43,7 @@ const App = () => {
     setJoined(true);
 
 
-    wsRef.current = new WebSocket('ws://103.195.246.19/api_test');
+    wsRef.current = new WebSocket(process.env.REACT_APP_WS_URL);
 
     wsRef.current.onopen = () => {
       console.log('WebSocket connection established');
