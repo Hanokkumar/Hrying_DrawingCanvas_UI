@@ -1,0 +1,143 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  background-color: #e5f5e5;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 2rem;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Ensures responsive stacking */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Toolbar Buttons */
+.toolbar-button {
+  background-color: #4caf50 !important;
+  color: white !important;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Canvas Container */
+.canvas-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ min-width: min-content; 
+}
+
+/* Canvas */
+canvas {
+  max-width: max-content;
+  height: auto;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.clear-button {
+  background-color: #ffeb3b !important;
+  color: black !important;
+}
+
+.leave-button {
+  background-color: #f44336 !important;
+  color: white !important;
+}
+
+/* 🎯 Mobile Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .toolbar-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .canvas-container {
+    width: 100%;
+    min-height: 300px;
+  }
+
+  canvas {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .clear-button, .leave-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
